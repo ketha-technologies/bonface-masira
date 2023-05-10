@@ -1,4 +1,4 @@
-# Boniface Masira
+# Bonface Masira
 
 Create a new simple Angular 2+ application. This application should include two pages
 
