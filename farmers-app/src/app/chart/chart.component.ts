@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { Observable, Subject } from 'rxjs';
 import { ChartConfiguration, ChartOptions, ChartType } from "chart.js"
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent {
+export class ChartComponent implements OnInit{
   title = 'ng2-charts-demo';
+  collections$!: Observable<any>;
 
   public barChartLegend = true;
   public barChartPlugins = [];
@@ -25,7 +28,10 @@ export class ChartComponent {
     responsive: false,
   };
 
-  constructor() {
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.collections$ = this.apiService.getCollections();
   }
 
   
