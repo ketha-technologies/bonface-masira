@@ -14,6 +14,14 @@ export class ApiService {
     return this.http.get('http://localhost:3000/collections');
   }
 
+  // getCollections(term: string = ''): Observable<any> {
+  //   return this.http.get('http://localhost:3000/collections').pipe(
+  //     map((collections: Object) =>
+  //       (collections as any[]).filter(collection => this.isValidCollection(collection.code, term))
+  //     )
+  //   );
+  // }
+
   searchCollections(term: string): Observable<any> {
     return this.http.get(`http://localhost:3000/collections?collectionCode=${term}`);
   }
