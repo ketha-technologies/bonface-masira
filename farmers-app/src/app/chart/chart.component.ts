@@ -4,23 +4,28 @@ import { Observable, Subject } from 'rxjs';
 import { ChartConfiguration, ChartOptions, ChartType } from "chart.js"
 import { ApiService } from '../api.service';
 
+interface CollectionData {
+  collectionCode: string;
+  farmer: string;
+  collectionSize: string;
+  collectionDate: string;
+}
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit{
-  title = 'ng2-charts-demo';
-  collections$!: Observable<any>;
+  collections$!: Observable<CollectionData[]>;
 
   public barChartLegend = true;
   public barChartPlugins = [];
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: [ 'Tami Yu', 'Matthew Davis', 'Brittney Perry', 'Frank Hudson', 'Jeffery Salazar', 'Andres Hicks', 'Lillian Waters', 'Lela Shah', 'Tyron Ellison', 'Joshua Boone' ],
+    labels: [],
     datasets: [
-      { data: [ 10, 16, 34, 65, 100, 84, 195, 73, 92, 100 ], label: 'Collection Size' },
-      // { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
+      { data: [], label: 'Collection Size' },
     ]
   };
 
@@ -32,7 +37,22 @@ export class ChartComponent implements OnInit{
 
   ngOnInit() {
     this.collections$ = this.apiService.getCollections();
+    this.collections$.subscribe(collections => {
+      const labels: any = [];
+      const data: any = [];
+      collections.forEach(collection => {
+        labels.push(collection.collectionDate);
+        data.push({
+          x: collection.collectionDate,
+          y: Number(collection.collectionSize),
+        });
+      });
+      this.barChartData = {
+        labels,
+        datasets: [
+          { data, label: 'Collection Size' },
+        ],
+      };
+    });
   }
-
-  
 }
