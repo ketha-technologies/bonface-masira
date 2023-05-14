@@ -1,5 +1,11 @@
 # FarmersApp
 
+The FarmersApp project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+
+ ## Description
+
+ The FarmersApp Project will allow users to view collections from different Farmers over a specific period of time. It also allows users to view a chart of the collections over the specific days which they happened.
+
 ## Screenshots
 
 ![Screenshot from 2023-05-15 00-12-14](https://github.com/bonfacemasira/MovieHub/assets/104436879/c0335d58-c6f1-4dea-b1c3-43a393cebbc6)
@@ -8,7 +14,8 @@
 ![Screenshot from 2023-05-15 00-12-44](https://github.com/bonfacemasira/MovieHub/assets/104436879/6d2ef2dd-df99-459f-83f6-d06176ef0d46)
 ![Screenshot from 2023-05-15 00-12-51](https://github.com/bonfacemasira/MovieHub/assets/104436879/940f6f89-010e-478e-9be5-10283df21dc7)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+## Authors Info
+LinkedIn - [Bonface Masira](https://www.linkedin.com/in/bonface-masira-975447a4)
 
 ## Development server
 
