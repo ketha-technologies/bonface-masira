@@ -1,0 +1,21 @@
+<main>
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Charts</h1>
+    <div class="card mb-4"></div>
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Collections over a period of time
+      </div>
+      <div class="card-body">
+        <canvas baseChart width="1400" height="500"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'">
+      </canvas>
+      </div>
+    </div>
+  </div>
+</main>

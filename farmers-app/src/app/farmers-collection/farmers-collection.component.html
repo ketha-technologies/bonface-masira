@@ -1,0 +1,34 @@
+<main>
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Farmers Collection Data</h1>
+    <div class="card mb-4">
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        <form class="form-inline my-2 my-lg-0">
+            <input type="text" class="form-control mr-sm-2"  placeholder="Search using Collection Code" id="Search" [(ngModel)]="searchTerms" (input)="filterCollections(searchTerms)" [ngModelOptions]="{standalone: true}">
+        </form>
+      </div>
+      <div class="card-body">
+        <table class="table" id="datatablesSimple">
+          <thead class="table-dark">
+            <tr>
+              <th>Collection Code</th>
+              <th>Farmer Name</th>
+              <th>Collection Size</th>
+              <th>Collection Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of filteredLists">
+              <td>{{ item.collectionCode }}</td>
+              <td>{{ item.farmer }}</td>
+              <td>{{ item.collectionSize }}</td>
+              <td>{{ item.collectionDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
