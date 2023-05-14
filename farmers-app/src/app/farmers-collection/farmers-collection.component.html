@@ -6,7 +6,7 @@
     <div class="card mb-4">
       <div class="card-header">
         <form class="form-inline my-2 my-lg-0">
-            <input type="text" class="form-control mr-sm-2"  placeholder="Search">
+            <input type="text" class="form-control mr-sm-2"  placeholder="Search" id="Search" [(ngModel)]="searchTerms">
         </form>
       </div>
       <div class="card-body">
@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of data$ | async">
+            <tr *ngFor="let item of collections$ | async">
               <td>{{ item.collectionCode }}</td>
               <td>{{ item.farmer }}</td>
               <td>{{ item.collectionSize }}</td>

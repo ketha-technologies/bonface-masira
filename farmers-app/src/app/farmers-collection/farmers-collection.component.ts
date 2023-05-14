@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
@@ -9,13 +9,27 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   styleUrls: ['./farmers-collection.component.css']
 })
 export class FarmersCollectionComponent implements OnInit {
-  data$!: Observable<any>;
+  collections$!: Observable<any>;
   searchTerms = new Subject<string>();
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private el: ElementRef) { }
 
   ngOnInit() {
-    this.data$ = this.apiService.getCollections();
+    this.collections$ = this.apiService.getCollections();
+
+    this.searchTerms.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      switchMap((searchTerms: string) => this.apiService.searchCollections(searchTerms))
+    ).subscribe(
+      (collections: any) => {
+        this.collections$ = collections;
+      }
+    )
+  }
+
+  search(searchTerms: string): void {
+    this.searchTerms.next(searchTerms)
   }
 
 }
