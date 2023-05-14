@@ -1,5 +1,13 @@
 # FarmersApp
 
+## Screenshots
+
+![Screenshot from 2023-05-15 00-12-14](https://github.com/bonfacemasira/MovieHub/assets/104436879/c0335d58-c6f1-4dea-b1c3-43a393cebbc6)
+![Screenshot from 2023-05-15 00-12-21](https://github.com/bonfacemasira/MovieHub/assets/104436879/d2f71545-b461-497e-8f5f-ae73c4690671)
+![Screenshot from 2023-05-15 00-12-33](https://github.com/bonfacemasira/MovieHub/assets/104436879/e80a5eb7-2967-48dd-98ec-4a38c6bbfa90)
+![Screenshot from 2023-05-15 00-12-44](https://github.com/bonfacemasira/MovieHub/assets/104436879/6d2ef2dd-df99-459f-83f6-d06176ef0d46)
+![Screenshot from 2023-05-15 00-12-51](https://github.com/bonfacemasira/MovieHub/assets/104436879/940f6f89-010e-478e-9be5-10283df21dc7)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
 
 ## Development server
