@@ -21,7 +21,6 @@ export class FarmersCollectionComponent implements OnInit {
   searchTerms: string;
 
   public allLists: Array<CollectionData>;
-
   public filteredLists: Array<CollectionData>;
 
   constructor(private apiService: ApiService, private el: ElementRef) {
@@ -36,27 +35,42 @@ export class FarmersCollectionComponent implements OnInit {
     this.collections$.subscribe((results) => {
       this.allLists = results
       this.filteredLists = results
-    })
-
-    // this.searchTerms.pipe(
-    //   debounceTime(400),
-    //   distinctUntilChanged(),
-    //   switchMap((searchTerms: string) => this.apiService.searchCollections(searchTerms))
-    // ).subscribe(
-    //   (collections: any) => {
-    //     this.collections$ = collections;
-    //   }
-    // )
+    });
   }
 
-  filterCollections(searchString: String) {
-    if (searchString.length >=3 ){
+  filterCollections() {
+    const searchString = this.searchTerms.trim();
+
+    // Validate the search input
+    if (searchString.length >= 3 && this.validateSearchInput(searchString)) {
       this.filteredLists = this.allLists.filter((list) => {
         return list.collectionCode.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
       });
     } else {
-      this.filteredLists = this.allLists
+      this.filteredLists = this.allLists;
     }
+  }
+
+  private validateSearchInput(searchTerms: string): boolean {
+    const lowercaseTerms = searchTerms.toLowerCase();
+    const searchArray = lowercaseTerms.split('');
+    const charCountMap = new Map();
+
+    for (const char of searchArray) {
+      if (charCountMap.has(char)) {
+        charCountMap.set(char, charCountMap.get(char) + 1);
+      } else {
+        charCountMap.set(char, 1);
+      }
+    }
+
+    for (const count of charCountMap.values()) {
+      if (count >= 3) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
 }
