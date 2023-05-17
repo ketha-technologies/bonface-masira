@@ -8,6 +8,9 @@
         <form class="form-inline my-2 my-lg-0">
             <input type="text" class="form-control mr-sm-2"  placeholder="Search using Collection Code" id="Search" [(ngModel)]="searchTerms" (input)="filterCollections()" [ngModelOptions]="{standalone: true}">
         </form>
+        <div *ngIf="isInvalidInput" class="error-message">
+          Please enter at least 3 characters and ensure that no character repeats more than twice.
+        </div>
       </div>
       <div class="card-body">
         <table class="table" id="datatablesSimple">

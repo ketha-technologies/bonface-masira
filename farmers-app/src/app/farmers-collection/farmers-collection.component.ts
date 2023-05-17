@@ -19,6 +19,7 @@ interface CollectionData {
 export class FarmersCollectionComponent implements OnInit {
   collections$!: Observable<any>;
   searchTerms: string;
+  isInvalidInput: boolean; // New variable to store the validation status
 
   public allLists: Array<CollectionData>;
   public filteredLists: Array<CollectionData>;
@@ -27,6 +28,7 @@ export class FarmersCollectionComponent implements OnInit {
     this.allLists = new Array();
     this.filteredLists = new Array();
     this.searchTerms = '';
+    this.isInvalidInput = false; // Initialize the validation status
   }
   
   ngOnInit() {
@@ -43,10 +45,12 @@ export class FarmersCollectionComponent implements OnInit {
 
     // Validate the search input
     if (searchString.length >= 3 && this.validateSearchInput(searchString)) {
+      this.isInvalidInput = false; // Reset the validation status
       this.filteredLists = this.allLists.filter((list) => {
         return list.collectionCode.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
       });
     } else {
+      this.isInvalidInput = true; // Set the validation status to true
       this.filteredLists = this.allLists;
     }
   }
