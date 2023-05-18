@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js/auto';
 import { Observable, Subject } from 'rxjs';
-import { ChartConfiguration, ChartOptions, ChartType } from "chart.js"
+import { ChartConfiguration } from "chart.js"
 import { ApiService } from '../api.service';
 
 interface CollectionData {

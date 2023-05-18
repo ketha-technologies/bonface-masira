@@ -12,7 +12,6 @@ import { FarmersCollectionComponent } from './farmers-collection/farmers-collect
 import { ChartComponent } from './chart/chart.component';
 import { IntroComponent } from './intro/intro.component';
 import { FooterComponent } from './footer/footer.component';
-import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { FilterPipe } from './filter.pipe';
     ChartComponent,
     IntroComponent,
     FooterComponent,
-    FilterPipe
   ],
   imports: [
     BrowserModule,
