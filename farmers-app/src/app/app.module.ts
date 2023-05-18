@@ -12,6 +12,7 @@ import { FarmersCollectionComponent } from './farmers-collection/farmers-collect
 import { ChartComponent } from './chart/chart.component';
 import { IntroComponent } from './intro/intro.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
     ChartComponent,
     IntroComponent,
     FooterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
