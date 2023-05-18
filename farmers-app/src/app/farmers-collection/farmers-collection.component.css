@@ -3,4 +3,9 @@
     font-size: 14px;
     margin-top: 15px;
   }
+
+  thead{
+    background-color: #0e5c1f;
+    color: #fff;
+  }
   
